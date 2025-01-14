@@ -179,23 +179,39 @@ No arquivo `appsettings.Development.json`, configure a string de conexão para o
 O `docker-compose.yml` define os serviços necessários para rodar o projeto:
 
 ```yaml
-version: '3.4'
-
 services:
+  # Serviço do SQL Server
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=Senha123!
+      - SA_PASSWORD=YourPassword123  # Altere para uma senha segura
     ports:
-      - "1433:1433"
-  
+      - "1433:1433"  # Porta padrão do SQL Server
+    networks:
+      - app-network
+
+  # Serviço da aplicação ASP.NET Core
   pmanage.api:
-    build: .
+    image: ${DOCKER_REGISTRY-}pmanageapi
+    build:
+      context: .
+      dockerfile: PManage.API/Dockerfile
+    container_name: pmanage-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=ProductDb;User=sa;Password=YourPassword123;
     ports:
-      - "8080:80"
+      - "5000:80"  # Porta que sua API ficará disponível
     depends_on:
       - sqlserver
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
 ```
 
 ## Contato
