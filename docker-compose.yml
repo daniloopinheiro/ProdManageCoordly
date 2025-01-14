@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  pmanage.api:
+    image: ${DOCKER_REGISTRY-}pmanageapi
+    build:
+      context: .
+      dockerfile: PManage.API/Dockerfile
+    environment:
+      - PostgresConnection=Host=postgres;Database=ProductDb;Username=postgres;Password=YourPassword123;
+    depends_on:
+      - postgres
+    networks:
+      - backend
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=YourPassword123
+      - POSTGRES_DB=ProductDb
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
