@@ -160,14 +160,17 @@ No arquivo `appsettings.Development.json`, configure a string de conexão para o
 
 ```json
 {
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=sqlserver;Database=ProdManageDb;User Id=sa;Password=Senha123!"
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Debug"
-    }
-  }
+    "ConnectionStrings": {
+        "DefaultConnection": "Server=sqlserver;Database=ProductDb;User=sa;Password=YourPassword123;"
+    },
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information",
+            "Microsoft": "Warning",
+            "Microsoft.Hosting.Lifetime": "Information"
+        }
+    },
+    "AllowedHosts": "*"
 }
 ```
 
