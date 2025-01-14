@@ -1,7 +1,3 @@
-Aqui está a documentação do projeto **ProdManageCoordly** com a seção de **Contribuições** removida:
-
----
-
 # ProdManageCoordly - Gerenciamento de Produtos
 
 Este projeto tem como objetivo implementar um sistema de gerenciamento de produtos, permitindo a criação, atualização, listagem e exclusão de produtos. O sistema também inclui configurações de ambiente utilizando Docker para facilitar o desenvolvimento e a execução.
@@ -205,7 +201,3 @@ Caso tenha dúvidas ou sugestões, entre em contato:
 
 - **Email**: [daniloopinheiro@dopme.io](mailto:daniloopinheiro@dopme.io)
 - **LinkedIn**: [Danilo O. Pinheiro](https://www.linkedin.com/in/daniloopinheiro/)
-
----
-
-Com isso, a seção de **Contribuições** foi removida. Se precisar de mais ajustes ou outra modificação, estou à disposição!
