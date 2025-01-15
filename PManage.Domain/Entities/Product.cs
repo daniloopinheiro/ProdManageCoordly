@@ -15,9 +15,14 @@ namespace PManage.Domain.Entities
 
         public void Validate()
         {
-            if (string.IsNullOrEmpty(Name)) throw new Exception("Product name is required.");
-            if (Price <= 0) throw new Exception("Product price must be greater than zero.");
-            if (StockQuantity < 0) throw new Exception("Stock quantity cannot be negative.");
+            if (string.IsNullOrEmpty(Name))
+                throw new Exception("O nome do produto é obrigatório.");
+
+            if (Price <= 0)
+                throw new Exception("O preço do produto deve ser maior que zero.");
+
+            if (StockQuantity < 0)
+                throw new Exception("A quantidade em estoque não pode ser negativa.");
         }
     }
 }
